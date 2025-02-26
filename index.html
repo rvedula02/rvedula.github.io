@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Website</title>
+    
+    <meta property="og:title" content="My Personal Website">
+    <meta property="og:description" content="A personal website created for INFO 1300">
+    <meta property="og:image" content="https://rvedula.github.io/BSS3/images/headshot.jpeg">
+    <meta property="og:url" content="https://rvedula.github.io/BSS3/">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #056241;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        @media (min-width: 768px) {
+            .container {
+                grid-template-columns: 300px 1fr;
+            }
+        }
+        
+        header, footer {
+            grid-column: 1 / -1;
+            background-color: #036238;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .profile {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .profile-pic {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 10px rgba(52, 152, 219, 0.7));
+            transition: filter 0.3s ease;
+        }
+        
+        .profile-pic:hover {
+            filter: drop-shadow(0 0 15px rgba(52, 152, 219, 1));
+        }
+        
+        main {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        section {
+            margin-bottom: 30px;
+        }
+        
+        h1, h2, h3 {
+            margin-bottom: 15px;
+        }
+        
+        #api-data {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #ecf0f1;
+            border-radius: 8px;
+        }
+        
+        .artwork {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .artwork img {
+            margin: 15px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border-radius: 4px;
+            transition: transform 0.3s ease;
+        }
+        
+        .artwork img:hover {
+            transform: scale(1.02);
+        }
+        
+        .artwork h3 {
+            color: #036238;
+            font-size: 1.2rem;
+        }
+        
+        .artwork p {
+            margin: 5px 0;
+        }
+        
+        .artwork a {
+            color: #036238;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            display: inline-block;
+        }
+        
+        .artwork a:hover {
+            text-decoration: underline;
+        }
+        
+        details {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        
+        summary {
+            cursor: pointer;
+            font-weight: bold;
+            padding: 5px;
+        }
+        
+        details > div {
+            padding: 10px;
+            margin-top: 10px;
+        }
+        
+        #interactive-area {
+            height: 200px;
+            background: linear-gradient(45deg, #3498db, #9b59b6);
+            border-radius: 8px;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #follower {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            mix-blend-mode: screen; 
+        }
+        
+        .facts-list {
+            padding-left: 20px;
+        }
+        
+        .facts-list li {
+            margin-bottom: 10px;
+        }
+        
+        figcaption {
+            font-style: italic;
+            text-align: center;
+            margin-top: 5px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>My Personal Website</h1>
+            <nav>
+                <a href="#about">About</a> | 
+                <a href="#learning">Learning</a> | 
+                <a href="#api-example">Art from The Met</a> | 
+                <a href="#interactive">Interactive Demo</a>
+            </nav>
+        </header>
+        
+        <aside class="profile">
+            <figure>
+                <img src="images/headshot.jpeg" alt="Profile Picture" class="profile-pic">
+                <figcaption>Me!</figcaption>
+            </figure>
+            <h2 id="about">About Me</h2>
+            <p>Welcome to my personal website. This website is for the purpose of my building startup systems class but I hope to turn this into an LLM-enabled collection of my projects.</p>
+            
+            <details>
+                <summary>Learn more about me</summary>
+                <div>
+                    <p>I go to school at Cornell Tech in New York City!</p>
+                    <ul class="facts-list">
+                        <li>I graduated from UMass Amherst in 2024.</li>
+                        <li>I love to read.</li>
+                        <li>I love frontend!</li>
+                    </ul>
+                </div>
+            </details>
+        </aside>
+        
+        <main>
+            <section>
+                <h2 id="learning">What I've Learned</h2>
+                <p>For this assignment, I explored new HTML and CSS features that weren't covered in class:</p>
+                
+                <h3>The &lt;details&gt; HTML Element</h3>
+                <p>I implemented the <code>&lt;details&gt;</code> element, which creates a small widget that can be expanded to display additional information about myself.</p>
+                
+                <h3>The CSS filter Property</h3>
+                <p>I used the <code>filter</code> CSS property to apply a drop-shadow effect to the profile picture. I noticed that it allowed for multiple visual effects like blur, brightness, & shadows without the need for external graphics editors. I also found that if I combined it with a transition, it resulted in a smooth, interactive effect when someone hovers over the image.</p>
+                
+                <h3>The CSS mix-blend-mode Property</h3>
+                <p>For the interactive element, I implemented the <code>mix-blend-mode</code> CSS property. This implementation doesn't serve any practical purposes but I thought it was cool to look at. It determines how an element's content blends with that of its parent and background.</p>
+                
+                <h3>API Integration</h3>
+                <p>I added the Metropolitan Museum of Art's public API to display artwork from their collection. This helped me refresh the practice of calling API's and updating the DOM with the response data.</p>
+            </section>
+            
+            <section>
+                <h2 id="api-example">Art from The Met</h2>
+                <p>Here's a random artwork from the Metropolitan Museum of Art:</p>
+                <div id="api-data">
+                    <p>Loading artwork...</p>
+                </div>
+                <button id="new-art">Get New Artwork</button>
+            </section>
+            
+            <section id="interactive">
+                <h2>Interactive Demo</h2>
+                <p>Move your mouse over the area below!</p>
+                <div id="interactive-area">
+                    <div id="follower"></div>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>&copy; 2023 My Personal Website.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetchArtwork();
+            
+            document.getElementById('new-art').addEventListener('click', fetchArtwork);
+            
+            const interactiveArea = document.getElementById('interactive-area');
+            const follower = document.getElementById('follower');
+            
+            interactiveArea.addEventListener('mousemove', function(e) {
+                const rect = interactiveArea.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                follower.style.left = x + 'px';
+                follower.style.top = y + 'px';
+            });
+            
+            interactiveArea.addEventListener('mouseenter', function() {
+                follower.style.opacity = 1;
+            });
+            
+            interactiveArea.addEventListener('mouseleave', function() {
+                follower.style.opacity = 0;
+            });
+        });
+
+        const metObjectIds = [
+            100, 436535, 438815, 437133, 436096, 
+            435882, 436121, 435809, 436105, 435641,
+            437052, 436944, 436101, 436840, 435621
+        ];
+
+        function fetchArtwork() {
+            const randomId = metObjectIds[Math.floor(Math.random() * metObjectIds.length)];
+            
+            fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${randomId}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.primaryImage) {
+                        const apiDataElement = document.getElementById('api-data');
+                        apiDataElement.innerHTML = `
+                            <div class="artwork">
+                                <h3>${data.title} (${data.objectDate})</h3>
+                                <img src="${data.primaryImage}" alt="${data.title}" style="max-width: 100%; max-height: 400px;">
+                                <p><strong>Artist:</strong> ${data.artistDisplayName || 'Unknown'}</p>
+                                <p><strong>Medium:</strong> ${data.medium}</p>
+                                <p><strong>Department:</strong> ${data.department}</p>
+                                <p><a href="${data.objectURL}" target="_blank">View on The Met website</a></p>
+                            </div>
+                        `;
+                    } else {
+                        fetchArtwork();
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching artwork:', error);
+                    document.getElementById('api-data').innerHTML = `
+                        <p>Failed to load artwork. Please try again later.</p>
+                        <p>Error: ${error.message}</p>
+                    `;
+                });
+        }
+    </script>
+</body>
+</html> 
